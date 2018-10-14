@@ -2,10 +2,19 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="SQL.LEVELINFO">
-	<select id="selectDate" resultType="map">
-		select to_char(sysdate,'YYYY-MM-DD') from dual
+<mapper namespace="SQL.TKTINFO">
+	<select id="selectTKTList" resultType="tkti" parameterType="tkti">
+		select * from MOV_TICKET_INFO
+		<where>
+			<if test="tkt_movid!=null">tkt_movid like '%' || #{tkt_movid} || '%'</if>
+			<if test="tkt_userid!=null">tkt_userid like '%' || #{tkt_userid} || '%'</if>
+			<if test="tkt_showdate!=null">tkt_showdate like '%' || #{tkt_showdate} || '%'</if>
+		</where>
 	</select>
+	<update id="updateTKT"></update>
+	<delete id="deleteTKT" parameterType="tkti">
+		delete from MOV_TICKET_INFO where tkt_id = #{tkt_id}
+	</delete>
 	<!-- 
 	<select id="selectLevelInfo" resultType="Li" parameterType="Li">
 		select * from level_info

@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ver" value="1.0"/>
+<c:set var="sufee" value="/sufee"/>
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>내가 봤던 영화들</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="${sufee}/assets/css/normalize.css">
+    <link rel="stylesheet" href="${sufee}/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${sufee}/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="${sufee}/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="${sufee}/assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="${sufee}/assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="${sufee}/assets/css/lib/datatable/dataTables.bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="${sufee}/assets/scss/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+<!--
+<script type="text/javascript" src="/js/jquery.js?ver=${ver}"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js?ver=${ver}"></script>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css" />
+
+<script type="text/javascript" src="/js/AjaxUtil.js?ver=${ver}"></script>
+<link rel="stylesheet" type="text/css" href="/css/list.css?ver=${ver}" />
+<link rel="stylesheet" type="text/css" href="/css/bg.css" />
+<!-- <script type="text/javascript" src="/js/bg.js?ver=${ver}"></script>
+
+<!-- BOOTSTRAP
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- BOOTSTRAP
+ -->
+</head>

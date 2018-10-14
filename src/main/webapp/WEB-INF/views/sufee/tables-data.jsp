@@ -66,32 +66,7 @@
 
 		<div class="content mt-3">
 			<div class="animated fadeIn">
-				<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel">
-					<div class="modal-dialog modal-lg" role="document">
-					    <div class="modal-content">
-					        <div class="modal-header">
-					            <h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
-					            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					                <span aria-hidden="true">&times;</span>
-					            </button>
-					        </div>
-					        <div class="modal-body">
-					            <p>
-					                There are three species of zebras: the plains zebra, the mountain zebra and the Grévy's zebra. The plains zebra
-					                and the mountain zebra belong to the subgenus Hippotigris, but Grévy's zebra is the sole species of subgenus
-					                Dolichohippus. The latter resembles an ass, to which it is closely related, while the former two are more
-					                horse-like. All three belong to the genus Equus, along with other living equids.
-					            </p>
-					        </div>
-					        <div class="modal-footer">
-					            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-					            <button type="button" class="btn btn-primary">Confirm</button>
-					        </div>
-					    </div>
-					</div>
-				</div>
 				<div class="row">
-
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
@@ -125,10 +100,130 @@
 			</div>
 		</div>
 		<!-- .content -->
+
+		<button id="modalBtn" type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#updateModal" style="display: none;">모달 버튼!!!!</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">예매 내역 수정</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="update-form">
+							<form id="update-form" class="needs-validation" novalidate>
+								<!-- 결제 플랫폼 -->
+								<div class="form-row">
+									<div class="col-md-10 mb-3">
+										<label for="vld01">결제 플랫폼</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-laptop"></i></div>
+											<select class="form-control" name="tkti_form" id="tkti_form" required>
+												<option value="현장 예매" selected>현장 예매</option>
+												<option value="온라인 예매" >온라인 예매</option>
+												<option value="모바일 예매" >모바일 예매</option>
+											</select>
+											<div class="invalid-feedback">예매 방식을 선택하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 방식 -->
+								<div class="form-row">
+									<div class="col-md-10 mb-3">
+										<label for="vld02">결제 방식</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
+											<select class="form-control" name="tkti_payment" id="tkti_payment" required>
+												<option value="무통장 입금(현금 결제)" selected>무통장 입금(현금 결제)</option>
+												<option value="신용카드 결제" >신용카드 결제</option>
+												<option value="예매권 이용" >예매권 이용</option>
+											</select>
+											<div class="invalid-feedback">예매 방식을 선택하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 일자 -->
+								<div class="form-row">
+									<div class="col-md-10 mb-3">
+										<label for="vld03">결제 일자</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+											<input type="date" class="form-control" name="tkti_paydate" id="tkti_paydate" required>
+											<div class="invalid-feedback">결제일을 선택하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 금액 -->
+								<div class="form-row">
+									<div class="col-md-10 mb-3">
+										<label for="vld04">결제 금액</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-money"></i></div>
+											<input type="number" class="form-control" name="tkti_price" id="tkti_price" min="0" required>
+											<div class="invalid-feedback">결제 금액을 입력하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 유저 -->
+								<div class="form-row">
+									<div class="col-md-10 mb-3">
+										<label for="vld05">회원 ID</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-user"></i></div>
+											<input type="text" class="form-control" name="tkti_userid" id="tkti_userid" required>
+											<div class="invalid-feedback">결제에 사용된 ID를 입력하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 유저 -->
+								<div class="form-row">
+									<div class="col-md-10 mb-3">
+										<label for="vld06">영화 제목</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-video-camera"></i></div>
+											<input type="text" class="form-control" name="tkti_movid" id="tkti_movid" required>
+											<div class="invalid-feedback">영화 제목을 입력하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 유저 -->
+								<div class="form-row">
+									<div class="col-md-10 mb-3">
+										<label for="vld06">상영 일시</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
+											<input type="date" class="form-control" name="tkti_showdate" id="tkti_showdate" required>&nbsp
+											<input type="time" class="form-control" name="tkti_showtime" id="tkti_showtime" required>
+											<div class="invalid-feedback">영화가 상영된 일자와 시각을 입력하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<button class="btn btn-primary" type="submit">유효성 검사</button>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-primary">저장</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Modal -->
+
 	</div>
 	<!-- /#right-panel -->
 
 	<!-- Right Panel -->
+
+
 
 
 	<script src="${sufee}/assets/js/vendor/jquery-2.1.4.min.js"></script>
@@ -156,26 +251,47 @@
 
 
 	<script type="text/javascript">
+	
+	// Example starter JavaScript for disabling form submissions if there are invalid fields
         $(document).ready(function() {
         	getTicketInfoList();
+        	doValidate();
         } );
         
         //window.addEventListener('load', getTicketInfoList());
 
       /// 함수 선언부 시작
 
-     
+		function doValidate() {
+		   // Fetch all the forms we want to apply custom Bootstrap validation styles to
+		   var forms = document.getElementsByClassName('needs-validation');
+		   // Loop over them and prevent submission
+		   var validation = Array.prototype.filter.call(forms, function(form) {
+		     form.addEventListener('submit', function(event) {
+		       if (form.checkValidity() === false) {
+		         event.preventDefault();
+		         event.stopPropagation();
+		       } else if(form.checkValidity() === true) {
+		        	var formData = $(this).serializeArray();
+		    	    $.ajax({
+		    	            type     : "PUT",
+		    	            cache    : false,
+		    	            url      : $(this).attr('action'),
+		    	            data     : formData,
+		    	            success  : function(data) {
+		    	                alert(data);
+		    	            }
+		    	    });
+		    	 	return false;
+		       }
+		       form.classList.add('was-validated');
+		   	return false;
+		     }, false);
+		   });
+		}
 
       // SELECT.LIST
 		function getTicketInfoList() {
-      	/* var conf = {
-      			url : '/ticketinfo',
-      			method : 'GET',
-      			cb : listInsert
-      	};
-      	
-      	var req = new AjaxUtil(conf);
-      	req.send() */
 
 			var klObj =  $('#tkti-list').DataTable( {
  		        "ajax": {
@@ -184,7 +300,7 @@
  		            "dataSrc": ""
  		        },
  		        "columns": [
- 		            { "data": "tkt_id", "id" : "tkt_id"},
+ 		            { "data": "tkt_id"},
  		            { "data": "tkt_form" },
  		            { "data": "tkt_payment" },
  		            { "data": "tkt_paydate" },
@@ -221,26 +337,42 @@
  		              }
 				}
 			})
-			 $('#tkti-list').on('click', 'tr', function () {
-		        var data = klObj.row( this ).data();
-		        $('#largeModal').modal('show');
-		       	
-		    } );
-
-			<!-- 테이블 그리기 -->
-      /* 	document.onreadystatechange = function(){
-      	    if (document.readyState === "complete") {
-      	    	$('#tkti-list tbody tr:first').html();
-      	    	//$('#tkti-list tbody tr:first').on('click',thisIdis);
-      	    } else if(document.readyState === "interactive") {
-      	    	$('#tkti-list tbody tr:first').html();
-      	    }
-      	} */
+			
+			$('#tkti-list').on('click', 'tr', function () {
+    	  		var klObj = $('#tkti-list').DataTable();
+	        	var data = klObj.row(this).data();
+	        	$('#update-form').attr('action', '/ticketinfo/' + data['tkt_id'])
+				$('#modalBtn').click();
+			})
+      	
       };
       
-      function thisIdis() {
-    	  alert('1');
-      }
+      /// 함수 선언부 종료
+      
+     /*  
+      $('#update-form').bind("submit", function() {
+    	  var formData = $(this).serializeArray();
+    	    $.ajax({
+    	            type     : "PUT",
+    	            cache    : false,
+    	            url      : $(this).attr('action'),
+    	            data     : formData,
+    	            success  : function(data) {
+    	                alert(data);
+    	            }
+    	    });
+    	    return false;
+    	}); */
+
+      
+
+		 
+      
+     /*  $('#tkti-list').on('click', 'tr', function () {
+    	  	var klObj = $('#tkti-list');
+	        var data = klObj.row( this ).data();
+	        $('#exampleModal').modal();
+	   } ); 
       
       //SELECT.CB
       function listInsert(res){
@@ -424,8 +556,10 @@
       };
 
       /// 검색 함수 종료
+      
+      */
 
-      /// 함수 선언부 종료
+     
 
     </script>
 

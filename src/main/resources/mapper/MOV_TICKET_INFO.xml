@@ -11,7 +11,26 @@
 			<if test="tkt_showdate!=null">tkt_showdate like '%' || #{tkt_showdate} || '%'</if>
 		</where>
 	</select>
-	<update id="updateTKT"></update>
+	<insert id="insertTKT" parameterType="tkti">
+		INSERT INTO MOV_TICKET_INFO (TKT_ID, TKT_FORM, TKT_PAYMENT, TKT_PAYDATE, TKT_PRICE, TKT_USERID, TKT_MOVID, TKT_SHOWDATE, TKT_SHOWTIME, TKT_THEATER, TKT_SEATID)
+		VALUES (seq_tkt_id.nextval, #{tkt_form}, #{tkt_payment}, #{tkt_paydate}, #{tkt_price}, #{tkt_userid}, #{tkt_movid}, #{tkt_showdate}, #{tkt_showtime}, #{tkt_theater}, #{tkt_seatid})
+	</insert>
+	<update id="updateTKT" parameterType="tkti">
+		update MOV_TICKET_INFO
+		<set>
+			<if test="tkt_form!=null">tkt_form = #{tkt_form},</if>
+			<if test="tkt_payment!=null">tkt_payment = #{tkt_payment},</if>
+			<if test="tkt_paydate!=null">tkt_paydate = #{tkt_paydate},</if>
+			<if test="tkt_price!=null">tkt_price = #{tkt_price},</if>
+			<if test="tkt_userid!=null">tkt_userid = #{tkt_userid},</if>
+			<if test="tkt_movid!=null">tkt_movid = #{tkt_movid},</if>
+			<if test="tkt_showdate!=null">tkt_showdate = #{tkt_showdate},</if>
+			<if test="tkt_showtime!=null">tkt_showtime = #{tkt_showtime},</if>
+			<if test="tkt_theater!=null">tkt_theater = #{tkt_theater},</if>
+			<if test="tkt_seatid!=null">tkt_seatid = #{tkt_seatid},</if>
+		</set>
+		where tkt_id = #{tkt_id}
+	</update>
 	<delete id="deleteTKT" parameterType="tkti">
 		delete from MOV_TICKET_INFO where tkt_id = #{tkt_id}
 	</delete>

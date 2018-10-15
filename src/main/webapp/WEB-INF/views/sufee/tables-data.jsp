@@ -93,6 +93,14 @@
 									<tbody>
 									</tbody>
 								</table>
+									<div class="row" style="margin: 40px 0;">
+										<div class="col-md-12">
+										<button id="updateModalBtn" type="button" class="btn btn-primary"
+											data-toggle="modal" data-target="#updateModal" style="display: none;">업데이트 모달 버튼!!!!</button>
+										<button id="insertModalBtn" type="button" class="btn btn-primary"
+											data-toggle="modal" data-target="#insertModal">새 이력 입력</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -100,17 +108,14 @@
 			</div>
 		</div>
 		<!-- .content -->
-
-		<button id="modalBtn" type="button" class="btn btn-primary"
-			data-toggle="modal" data-target="#updateModal" style="display: none;">모달 버튼!!!!</button>
-
-		<!-- Modal -->
+		
+		<!-- update Modal -->
 		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel">
+			aria-labelledby="updateModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">예매 내역 수정</h5>
+						<h5 class="modal-title" id="updateModalLabel">예매 내역 수정</h5>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
@@ -125,7 +130,7 @@
 										<label for="vld01">결제 플랫폼</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-laptop"></i></div>
-											<select class="form-control" name="tkt_form" id="tkt_form" required>
+											<select class="form-control" name="tkt_form" required>
 												<option value="현장 예매" selected>현장 예매</option>
 												<option value="온라인 예매" >온라인 예매</option>
 												<option value="모바일 예매" >모바일 예매</option>
@@ -140,7 +145,7 @@
 										<label for="vld02">결제 방식</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-											<select class="form-control" name="tkt_payment" id="tkt_payment" required>
+											<select class="form-control" name="tkt_payment" required>
 												<option value="현금 결제" selected>무통장 입금(현금 결제)</option>
 												<option value="카드 결제" >카드 결제</option>
 												<option value="예매권 결제" >예매권 결제</option>
@@ -155,7 +160,7 @@
 										<label for="vld03">결제 일자</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-											<input type="date" class="form-control" name="tkt_paydate" id="tkt_paydate" required>
+											<input type="date" class="form-control" name="tkt_paydate" required>
 											<div class="invalid-feedback">결제일을 선택하십시오.</div>
 										</div>
 									</div>
@@ -166,7 +171,7 @@
 										<label for="vld04">결제 금액</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-money"></i></div>
-											<input type="number" class="form-control" name="tkt_price" id="tkt_price" min="0" required>
+											<input type="number" class="form-control" name="tkt_price" min="0" placeholder="영화티켓 결제 금액" required>
 											<div class="invalid-feedback">결제 금액을 입력하십시오.</div>
 										</div>
 									</div>
@@ -177,32 +182,105 @@
 										<label for="vld05">회원 ID</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-user"></i></div>
-											<input type="text" class="form-control" name="tkt_userid" id="tkt_userid" required>
+											<input type="text" class="form-control" name="tkt_userid" placeholder="결제에 사용된 ID" required>
 											<div class="invalid-feedback">결제에 사용된 ID를 입력하십시오.</div>
 										</div>
 									</div>
 								</div>
-								<!-- 결제 유저 -->
+								<!-- 영화 제목 -->
 								<div class="form-row">
 									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
 										<label for="vld06">영화 제목</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-video-camera"></i></div>
-											<input type="text" class="form-control" name="tkt_movid" id="tkt_movid" required>
+											<input type="text" class="form-control" name="tkt_movid" placeholder="영화 제목을 입력" required>
 											<div class="invalid-feedback">영화 제목을 입력하십시오.</div>
 										</div>
 									</div>
 								</div>
-								<!-- 결제 유저 -->
+								<!-- 상영 일자 -->
 								<div class="form-row">
-									<div class="col-md-10 mr-auto ml-auto">
-										<label for="vld06">상영 일시</label>
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld07">상영 일자</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-calendar-o"></i></div>
+											<input type="date" class="form-control" name="tkt_showdate" required>
+											<div class="invalid-feedback">결제일을 선택하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 상영 시간 -->
+								<div class="form-row">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld08">상영 시간</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
-											<input type="date" class="form-control" name="tkt_showdate" id="tkt_showdate" required>&nbsp
-											<input type="time" class="form-control" name="tkt_showtime" id="tkt_showtime" required>
-											<div class="invalid-feedback">영화가 상영된 일자와 시각을 입력하십시오.</div>
+											<input type="time" class="form-control" name="tkt_showtime" required>
+											<div class="invalid-feedback">결제일을 선택하십시오.</div>
 										</div>
+									</div>
+								</div>
+								<!-- 영화관 선택 -->
+								<div class="form-row">
+									<div class="col-md-10 mr-auto ml-auto">
+										<label for="vld09">상영관</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-building-o"></i></div>
+											<select class="form-control" name="tkt_theater_floor" required>
+												<option value="F01">1층</option>
+												<option value="F02">2층</option>
+												<option value="F03">3층</option>
+												<option value="F04">4층</option>
+											</select>
+											<select class="form-control" name="tkt_theater_place" required>
+												<option value="P01">1관</option>
+												<option value="P02">2관</option>
+												<option value="P03">3관</option>
+												<option value="P04">4관</option>
+											</select>
+											<div class="invalid-feedback">영화가 상영된 상영관의 층수와 상영관을 선택하십시오.</div>
+										</div>
+										<input type="text" name="tkt_theater" disabled>
+									</div>
+								</div>
+								<!-- 예매 좌석 -->
+								<div class="form-row">
+									<div class="col-md-10 mr-auto ml-auto">
+										<label for="vld10">예매 좌석</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-users"></i></div>
+											<select class="form-control custom-select" name="tkt_seatid_row" required>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="E">E</option>
+												<option value="F">F</option>
+												<option value="G">G</option>
+												<option value="H">H</option>
+												<option value="I">I</option>
+												<option value="J">J</option>
+												<option value="K">K</option>
+												<option value="L">L</option>
+												<option value="M">M</option>
+												<option value="N">N</option>
+												<option value="O">O</option>
+												<option value="P">P</option>
+												<option value="Q">Q</option>
+												<option value="R">R</option>
+												<option value="S">S</option>
+												<option value="T">T</option>
+												<option value="U">U</option>
+												<option value="V">V</option>
+												<option value="W">W</option>
+												<option value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="Z">Z</option>
+											</select>
+											<input type="number" class="form-control" name="tkt_seatid_seat" min="1" max="30" maxlength="30" placeholder="1~30" required>
+											<div class="invalid-feedback">알맞은 좌석을 선택하십시오. (A01 ~ Z30)</div>
+										</div>
+										<input type="text" name="tkt_seatid" disabled>
 									</div>
 								</div>
 								<!-- <button class="btn btn-primary" type="submit">유효성 검사</button> -->
@@ -212,26 +290,211 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
 						<button type="submit" class="btn btn-primary" form="update-form">저장</button>
-						<button type="button" class="btn btn-danger" onclick="">삭제</button>
+						<button type="submit" class="btn btn-danger" onclick="deleteTicketInfo()">삭제</button>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- Modal -->
+		<!-- update Modal -->
+		
+		
+		<!-- insert Modal -->
+		<div class="modal fade" id="insertModal" tabindex="-2" role="dialog"
+			aria-labelledby="insertModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="insertModalLabel">새 이력 입력</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="insert-form">
+							<form id="insert-form" class="needs-validation" novalidate>
+								<!-- 결제 플랫폼 -->
+								<div class="form-row">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld01">결제 플랫폼</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-laptop"></i></div>
+											<select class="form-control" name="tkt_form" required>
+												<option value="현장 예매" selected>현장 예매</option>
+												<option value="온라인 예매" >온라인 예매</option>
+												<option value="모바일 예매" >모바일 예매</option>
+											</select>
+											<div class="invalid-feedback">예매 방식을 선택하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 방식 -->
+								<div class="form-row">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld02">결제 방식</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
+											<select class="form-control" name="tkt_payment" required>
+												<option value="현금 결제" selected>무통장 입금(현금 결제)</option>
+												<option value="카드 결제" >카드 결제</option>
+												<option value="예매권 결제" >예매권 결제</option>
+											</select>
+											<div class="invalid-feedback">예매 방식을 선택하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 일자 -->
+								<div class="form-row">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld03">결제 일자</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+											<input type="date" class="form-control" name="tkt_paydate" required>
+											<div class="invalid-feedback">결제일을 선택하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 금액 -->
+								<div class="form-row">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld04">결제 금액</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-money"></i></div>
+											<input type="number" class="form-control" name="tkt_price" min="0" placeholder="영화티켓 결제 금액" required>
+											<div class="invalid-feedback">결제 금액을 입력하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 결제 유저 -->
+								<div class="form-row">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld05">회원 ID</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-user"></i></div>
+											<input type="text" class="form-control" name="tkt_userid" placeholder="결제에 사용된 ID" required>
+											<div class="invalid-feedback">결제에 사용된 ID를 입력하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 영화 제목 -->
+								<div class="form-row">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld06">영화 제목</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-video-camera"></i></div>
+											<input type="text" class="form-control" name="tkt_movid" placeholder="영화 제목을 입력" required>
+											<div class="invalid-feedback">영화 제목을 입력하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 상영 일자 -->
+								<div class="form-row">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld07">상영 일자</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-calendar-o"></i></div>
+											<input type="date" class="form-control" name="tkt_showdate" required>
+											<div class="invalid-feedback">결제일을 선택하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 상영 시간 -->
+								<div class="form-row">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
+										<label for="vld08">상영 시간</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
+											<input type="time" class="form-control" name="tkt_showtime" required>
+											<div class="invalid-feedback">결제일을 선택하십시오.</div>
+										</div>
+									</div>
+								</div>
+								<!-- 영화관 선택 -->
+								<div class="form-row">
+									<div class="col-md-10 mr-auto ml-auto">
+										<label for="vld09">상영관</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-building-o"></i></div>
+											<select class="form-control" name="tkt_theater_floor" required>
+												<option value="F01" selected>1층</option>
+												<option value="F02">2층</option>
+												<option value="F03">3층</option>
+												<option value="F04">4층</option>
+											</select>
+											<select class="form-control" name="tkt_theater_place" required>
+												<option value="P01" selected>1관</option>
+												<option value="P02">2관</option>
+												<option value="P03">3관</option>
+												<option value="P04">4관</option>
+											</select>
+											<div class="invalid-feedback">영화가 상영된 상영관의 층수와 상영관을 선택하십시오.</div>
+										</div>
+										<input type="text" name="tkt_theater" value="P01F01" disabled>
+									</div>
+								</div>
+								<!-- 예매 좌석 -->
+								<div class="form-row">
+									<div class="col-md-10 mr-auto ml-auto">
+										<label for="vld10">예매 좌석</label>
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-users"></i></div>
+											<select class="form-control custom-select" name="tkt_seatid_row" required>
+												<option value="A" selected>A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="E">E</option>
+												<option value="F">F</option>
+												<option value="G">G</option>
+												<option value="H">H</option>
+												<option value="I">I</option>
+												<option value="J">J</option>
+												<option value="K">K</option>
+												<option value="L">L</option>
+												<option value="M">M</option>
+												<option value="N">N</option>
+												<option value="O">O</option>
+												<option value="P">P</option>
+												<option value="Q">Q</option>
+												<option value="R">R</option>
+												<option value="S">S</option>
+												<option value="T">T</option>
+												<option value="U">U</option>
+												<option value="V">V</option>
+												<option value="W">W</option>
+												<option value="X">X</option>
+												<option value="Y">Y</option>
+												<option value="Z">Z</option>
+											</select>
+											<input type="number" class="form-control" name="tkt_seatid_seat" min="1" max="30" maxlength="30" placeholder="1~30" required>
+											<div class="invalid-feedback">알맞은 좌석을 선택하십시오. (A01 ~ Z30)</div>
+										</div>
+										<input type="text" name="tkt_seatid" disabled>
+									</div>
+								</div>
+								<!-- <button class="btn btn-primary" type="submit">유효성 검사</button> -->
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="$('#insert-form')[0].reset()">닫기</button>
+						<button type="submit" class="btn btn-primary" form="insert-form">저장</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- insert Modal -->
+		
 
 	</div>
 	<!-- /#right-panel -->
 
 	<!-- Right Panel -->
 
-
-
-
 	<script src="${sufee}/assets/js/vendor/jquery-2.1.4.min.js"></script>
 	<script src="${sufee}/assets/js/popper.min.js"></script>
 	<script src="${sufee}/assets/js/plugins.js"></script>
 	<script src="${sufee}/assets/js/main.js"></script>
-
 
 	<script src="${sufee}/assets/js/lib/data-table/datatables.min.js"></script>
 	<script
@@ -253,16 +516,12 @@
 
 	<script type="text/javascript">
 	
-	// Example starter JavaScript for disabling form submissions if there are invalid fields
         $(document).ready(function() {
         	getTicketInfoList();
         	doValidate();
         } );
-        
-        //window.addEventListener('load', getTicketInfoList());
 
-      /// 함수 선언부 시작
-     	
+      /// 함수 선언부 시작	
 
 		function doValidate() {
 			var forms = document.getElementsByClassName('needs-validation');
@@ -274,35 +533,43 @@
 					} else if(form.checkValidity() === true) {
 						event.preventDefault();
 						event.stopPropagation();
-			        	var formData = getFormData($(this));
-			    	    var xhr = $.ajax({
-							type     : "PUT",
-							cache    : false,
-							url      : $(this).attr('action'),
-							data     : JSON.stringify(formData),
-							contentType : "application/json; charset=UTF-8",
-							accept : "text/html; charset=UTF-8",
-							success  : function(res) {
-								if(res == 1) {
-									alert('SUCCESS');
-									window.location = "/url/sufee:tables-data";
-								} else {
-									alert('FAIL');
+						var formData = makeJSONFromFormdata($(this));
+						if(form.id == 'update-form') {
+				    	    $.ajax({
+								type     : "PUT",
+								cache    : false,
+								url      : $(this).attr('action'),
+								data     : JSON.stringify(formData),
+								contentType : "application/json; charset=UTF-8",
+								accept : "text/html; charset=UTF-8",
+								success  : function(res) {
+									if(res == 1) {
+										alert('UPDATE SUCCESS');
+										window.location = "/url/sufee:tables-data";
+									} else {
+										alert('UPDATE FAIL');
+									}
 								}
-							}
-						})
-						xhr.			
-		    	    	xhr.onreadystatechange = function(res) {
-							if(xhr.readyState == '4') {
-				    	    	if(xhr.status == '200') {
-				    	    		alert(res);
-			    	    		} else {
-			    	    			alert(res);
-			    	    		}
-			    	    	}	
-			    		}
-			    	   	event.preventDefault();
-						event.stopPropagation();
+							})
+						} else if(form.id == 'insert-form') {
+							formData.tkt_id = 
+							$.ajax({
+								type     : "POST",
+								cache    : false,
+								url      : "/ticketinfo/",
+								data     : JSON.stringify(formData),
+								contentType : "application/json; charset=UTF-8",
+								accept : "text/html; charset=UTF-8",
+								success  : function(res) {
+									if(res == 1) {
+										alert('INSERT SUCCESS');
+										window.location = "/url/sufee:tables-data";
+									} else {
+										alert('INSERT FAIL');
+									}
+								}
+							})
+						}
 			    	}
 					form.classList.add('was-validated');
 			   		return false;
@@ -310,15 +577,54 @@
 			});
 		}
 
-		function getFormData($form){
+		function makeJSONFromFormdata($form){
 			var unindexed_array = $form.serializeArray();
 	 	    var indexed_array = {};
 	
 	 	    $.map(unindexed_array, function(n, i){
 	 	        indexed_array[n['name']] = n['value'];
 	 	    });
-	
+			
 	 	    return indexed_array;
+		}
+		
+		function deleteTicketInfo() {
+			var tkt_id = $('#updateModal form').attr('data-target');
+				$.ajax({
+				type     : "DELETE",
+				cache    : false,
+				url      : '/ticketinfo/',
+				data     : JSON.stringify({tkt_id : tkt_id}),
+				contentType : "application/json; charset=UTF-8",
+				accept : "text/html; charset=UTF-8",
+				success  : function(res) {
+					if(res == 1) {
+						alert('DELETE SUCCESS');
+						window.location = "/url/sufee:tables-data";
+					} else {
+						alert('DELETE FAIL');
+					}
+				}
+			})			
+		}
+		
+		function insertTicketInfo() {
+				$.ajax({
+				type     : "POST",
+				cache    : false,
+				url      : '/ticketinfo/',
+				data     : JSON.stringify({tkt_id : tkt_id}),
+				contentType : "application/json; charset=UTF-8",
+				accept : "text/html; charset=UTF-8",
+				success  : function(res) {
+					if(res == 1) {
+						alert('INSERT SUCCESS');
+						window.location = "/url/sufee:tables-data";
+					} else {
+						alert('INSERT FAIL');
+					}
+				}
+			})			
 		}
       
       // SELECT.LIST
@@ -369,6 +675,8 @@
 				}
 			})
 		};
+		
+		dynamicFormOnChange();
       
 		(function trOnClickMaker() {
 	   		$('#tkti-list').on('click', 'tr', function () {
@@ -377,11 +685,55 @@
 	        	var dataTarget = $('#update-form').attr('data-target', data['tkt_id']).attr('data-target');
 	        	$('#update-form').attr('action', '/ticketinfo/' + dataTarget);
 	        	for(var key in data) {
-	        		$('#'+key).val(data[key]);
+	        		if(key == 'tkt_theater') {
+	        			$('#update-form [name="'+ key + '"]').val(data[key]);
+	        			$('#update-form [name="'+ key + '_place"]').val(data[key].substring(0, 3));
+	        			$('#update-form [name="'+ key + '_floor"]').val(data[key].substring(3));
+	        		} else if(key == 'tkt_seatid') {
+	        			$('#update-form [name="'+ key + '"]').val(data[key]);
+	        			$('#update-form [name="'+ key + '_row"]').val(data[key].substring(0, 1));
+	        			$('#update-form [name="'+ key + '_seat"]').val(data[key].substring(1));
+	        		} else {
+	        			$('#update-form [name="'+ key + '"]').val(data[key]);
+	        		}
 	        	}
-				$('#modalBtn').click();
+				$('#updateModalBtn').click();
 			})
 		})();
+		
+		function dynamicFormOnChange(){
+			var eachForm = document.querySelectorAll('form');
+			
+			for(var form of eachForm) {
+				/* theater */
+				var formId = '#' + form.id + ' ';
+				var floor = $(formId + '[name="tkt_theater_floor"]');
+				var place = $(formId + '[name="tkt_theater_place"]');
+				var tkt_theater = $(formId + '[name="tkt_theater"]');
+				
+				floor.on('change', function () {
+					tkt_theater.val(place.val() + floor.val());
+				})
+				
+				place.on('change', function () {
+					tkt_theater.val(place.val() + floor.val());
+				})
+				
+				/* seatid */
+				var row = $(formId + '[name="tkt_seatid_row"]');
+				var seat = $(formId + '[name="tkt_seatid_seat"]');
+				var tkt_seatid = $(formId + '[name="tkt_seatid"]');
+				
+				row.on('change', function () {
+					tkt_seatid.val(row.val() + seat.val().padStart(2,'0'));
+				})
+				
+				seat.on('change', function () {
+					tkt_seatid.val(row.val() + seat.val().padStart(2,'0'));
+				})
+			}
+				
+		}
 		
 		
       

@@ -27,29 +27,33 @@ import com.springs.study.vo.TicketInfo;
  */
 @Controller
 public class TicketController {
-	
-	//private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
+	// private static final Logger logger =
+	// LoggerFactory.getLogger(HomeController.class);
+
 	@Autowired
 	private SqlSession ss;
-	
-	/*@Autowired
-	private TicketInfo tkti;*/
-	
+
+	/*
+	 * @Autowired private TicketInfo tkti;
+	 */
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/ticketinfo", method = RequestMethod.GET)
-	@ResponseBody public List<TicketInfo> selectTicketInfoList(TicketInfo tkti) {
-		//logger.info("THIS IS SELECT.LIST");
-		
-		//System.out.println(ss.selectList("SQL.TKTINFO.selectTKTList"));
-		
+	@ResponseBody
+	public List<TicketInfo> selectTicketInfoList(TicketInfo tkti) {
+		// logger.info("THIS IS SELECT.LIST");
+
+		// System.out.println(ss.selectList("SQL.TKTINFO.selectTKTList"));
+
 		return ss.selectList("SQL.TKTINFO.selectTKTList");
 	}
-	
+
 	@RequestMapping(value = "/ticketinfo/search", method = RequestMethod.GET)
-	@ResponseBody public List<TicketInfo> selectTicketInfoSearch(@RequestParam("params") String params) {
+	@ResponseBody
+	public List<TicketInfo> selectTicketInfoSearch(@RequestParam("params") String params) {
 		ObjectMapper mapper = new ObjectMapper();
 		TicketInfo tkti = null;
 		try {
@@ -64,28 +68,32 @@ public class TicketController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		System.out.println(tkti);
-		
+
 		return ss.selectList("SQL.TKTINFO.selectTKTList", tkti);
 	}
-	
+
+	@RequestMapping(value = "/ticketinfo/", method = RequestMethod.POST)
+	@ResponseBody
+	public int insertTicketInfo(@RequestBody TicketInfo tkti) {
+		System.out.println("안녕 난 인서트, 받아온 값 볼래? - " + tkti);
+		return ss.insert("SQL.TKTINFO.insertTKT", tkti);
+	}
+
 	@RequestMapping(value = "/ticketinfo/{tkt_id}", method = RequestMethod.PUT)
-	@ResponseBody public Integer updateTicketInfo(
-			@PathVariable Integer tkt_id,
-			@RequestBody TicketInfo tkti)
-	{
+	@ResponseBody
+	public int updateTicketInfo(@PathVariable Integer tkt_id, @RequestBody TicketInfo tkti) {
 		tkti.setTkt_id(tkt_id);
 		System.out.println("안녕 난 업데이트, 받아온 값 볼래? - " + tkti);
-		return 1;
+		return ss.update("SQL.TKTINFO.updateTKT", tkti);
 	}
-	
-	@RequestMapping(value = "/ticketinfo/", method = RequestMethod.DELETE, produces = "application/json; charset=utf-8")
-	@ResponseBody public String deleteTicketInfo(
-			@RequestBody TicketInfo tkti)
-	{
+
+	@RequestMapping(value = "/ticketinfo/", method = RequestMethod.DELETE)
+	@ResponseBody
+	public int deleteTicketInfo(@RequestBody TicketInfo tkti) {
 		System.out.println("안녕 난 딜리트, 받아온 값 볼래? - " + tkti);
-		return "삭제 로직 도착!";
+		return ss.delete("SQL.TKTINFO.deleteTKT", tkti);
 	}
-	
+
 }

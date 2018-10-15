@@ -70,13 +70,14 @@ public class TicketController {
 		return ss.selectList("SQL.TKTINFO.selectTKTList", tkti);
 	}
 	
-	@RequestMapping(value = "/ticketinfo/{tkt_id}", method = RequestMethod.PUT, produces = "application/json; charset=utf-8")
-	@ResponseBody public String updateTicketInfo(
+	@RequestMapping(value = "/ticketinfo/{tkt_id}", method = RequestMethod.PUT)
+	@ResponseBody public Integer updateTicketInfo(
 			@PathVariable Integer tkt_id,
 			@RequestBody TicketInfo tkti)
 	{
+		tkti.setTkt_id(tkt_id);
 		System.out.println("안녕 난 업데이트, 받아온 값 볼래? - " + tkti);
-		return "업데이트 로직 도착!";
+		return 1;
 	}
 	
 	@RequestMapping(value = "/ticketinfo/", method = RequestMethod.DELETE, produces = "application/json; charset=utf-8")

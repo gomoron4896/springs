@@ -121,11 +121,11 @@
 							<form id="update-form" class="needs-validation" novalidate>
 								<!-- 결제 플랫폼 -->
 								<div class="form-row">
-									<div class="col-md-10 mb-3">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
 										<label for="vld01">결제 플랫폼</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-laptop"></i></div>
-											<select class="form-control" name="tkti_form" id="tkti_form" required>
+											<select class="form-control" name="tkt_form" id="tkt_form" required>
 												<option value="현장 예매" selected>현장 예매</option>
 												<option value="온라인 예매" >온라인 예매</option>
 												<option value="모바일 예매" >모바일 예매</option>
@@ -136,14 +136,14 @@
 								</div>
 								<!-- 결제 방식 -->
 								<div class="form-row">
-									<div class="col-md-10 mb-3">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
 										<label for="vld02">결제 방식</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-											<select class="form-control" name="tkti_payment" id="tkti_payment" required>
-												<option value="무통장 입금(현금 결제)" selected>무통장 입금(현금 결제)</option>
-												<option value="신용카드 결제" >신용카드 결제</option>
-												<option value="예매권 이용" >예매권 이용</option>
+											<select class="form-control" name="tkt_payment" id="tkt_payment" required>
+												<option value="현금 결제" selected>무통장 입금(현금 결제)</option>
+												<option value="카드 결제" >카드 결제</option>
+												<option value="예매권 결제" >예매권 결제</option>
 											</select>
 											<div class="invalid-feedback">예매 방식을 선택하십시오.</div>
 										</div>
@@ -151,67 +151,68 @@
 								</div>
 								<!-- 결제 일자 -->
 								<div class="form-row">
-									<div class="col-md-10 mb-3">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
 										<label for="vld03">결제 일자</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-											<input type="date" class="form-control" name="tkti_paydate" id="tkti_paydate" required>
+											<input type="date" class="form-control" name="tkt_paydate" id="tkt_paydate" required>
 											<div class="invalid-feedback">결제일을 선택하십시오.</div>
 										</div>
 									</div>
 								</div>
 								<!-- 결제 금액 -->
 								<div class="form-row">
-									<div class="col-md-10 mb-3">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
 										<label for="vld04">결제 금액</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-money"></i></div>
-											<input type="number" class="form-control" name="tkti_price" id="tkti_price" min="0" required>
+											<input type="number" class="form-control" name="tkt_price" id="tkt_price" min="0" required>
 											<div class="invalid-feedback">결제 금액을 입력하십시오.</div>
 										</div>
 									</div>
 								</div>
 								<!-- 결제 유저 -->
 								<div class="form-row">
-									<div class="col-md-10 mb-3">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
 										<label for="vld05">회원 ID</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-user"></i></div>
-											<input type="text" class="form-control" name="tkti_userid" id="tkti_userid" required>
+											<input type="text" class="form-control" name="tkt_userid" id="tkt_userid" required>
 											<div class="invalid-feedback">결제에 사용된 ID를 입력하십시오.</div>
 										</div>
 									</div>
 								</div>
 								<!-- 결제 유저 -->
 								<div class="form-row">
-									<div class="col-md-10 mb-3">
+									<div class="col-md-10 offset-md-3 mr-auto ml-auto">
 										<label for="vld06">영화 제목</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-video-camera"></i></div>
-											<input type="text" class="form-control" name="tkti_movid" id="tkti_movid" required>
+											<input type="text" class="form-control" name="tkt_movid" id="tkt_movid" required>
 											<div class="invalid-feedback">영화 제목을 입력하십시오.</div>
 										</div>
 									</div>
 								</div>
 								<!-- 결제 유저 -->
 								<div class="form-row">
-									<div class="col-md-10 mb-3">
+									<div class="col-md-10 mr-auto ml-auto">
 										<label for="vld06">상영 일시</label>
 										<div class="input-group">
 											<div class="input-group-addon"><i class="fa fa-clock-o"></i></div>
-											<input type="date" class="form-control" name="tkti_showdate" id="tkti_showdate" required>&nbsp
-											<input type="time" class="form-control" name="tkti_showtime" id="tkti_showtime" required>
+											<input type="date" class="form-control" name="tkt_showdate" id="tkt_showdate" required>&nbsp
+											<input type="time" class="form-control" name="tkt_showtime" id="tkt_showtime" required>
 											<div class="invalid-feedback">영화가 상영된 일자와 시각을 입력하십시오.</div>
 										</div>
 									</div>
 								</div>
-								<button class="btn btn-primary" type="submit">유효성 검사</button>
+								<!-- <button class="btn btn-primary" type="submit">유효성 검사</button> -->
 							</form>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-						<button type="button" class="btn btn-primary">저장</button>
+						<button type="submit" class="btn btn-primary" form="update-form">저장</button>
+						<button type="button" class="btn btn-danger" onclick="">삭제</button>
 					</div>
 				</div>
 			</div>
@@ -261,35 +262,65 @@
         //window.addEventListener('load', getTicketInfoList());
 
       /// 함수 선언부 시작
+     	
 
 		function doValidate() {
-		   // Fetch all the forms we want to apply custom Bootstrap validation styles to
-		   var forms = document.getElementsByClassName('needs-validation');
-		   // Loop over them and prevent submission
-		   var validation = Array.prototype.filter.call(forms, function(form) {
-		     form.addEventListener('submit', function(event) {
-		       if (form.checkValidity() === false) {
-		         event.preventDefault();
-		         event.stopPropagation();
-		       } else if(form.checkValidity() === true) {
-		        	var formData = $(this).serializeArray();
-		    	    $.ajax({
-		    	            type     : "PUT",
-		    	            cache    : false,
-		    	            url      : $(this).attr('action'),
-		    	            data     : formData,
-		    	            success  : function(data) {
-		    	                alert(data);
-		    	            }
-		    	    });
-		    	 	return false;
-		       }
-		       form.classList.add('was-validated');
-		   	return false;
-		     }, false);
-		   });
+			var forms = document.getElementsByClassName('needs-validation');
+			var validation = Array.prototype.filter.call(forms, function(form) {
+				form.addEventListener('submit', function(event) {
+					if (form.checkValidity() === false) {
+						event.preventDefault();
+						event.stopPropagation();
+					} else if(form.checkValidity() === true) {
+						event.preventDefault();
+						event.stopPropagation();
+			        	var formData = getFormData($(this));
+			    	    var xhr = $.ajax({
+							type     : "PUT",
+							cache    : false,
+							url      : $(this).attr('action'),
+							data     : JSON.stringify(formData),
+							contentType : "application/json; charset=UTF-8",
+							accept : "text/html; charset=UTF-8",
+							success  : function(res) {
+								if(res == 1) {
+									alert('SUCCESS');
+									window.location = "/url/sufee:tables-data";
+								} else {
+									alert('FAIL');
+								}
+							}
+						})
+						xhr.			
+		    	    	xhr.onreadystatechange = function(res) {
+							if(xhr.readyState == '4') {
+				    	    	if(xhr.status == '200') {
+				    	    		alert(res);
+			    	    		} else {
+			    	    			alert(res);
+			    	    		}
+			    	    	}	
+			    		}
+			    	   	event.preventDefault();
+						event.stopPropagation();
+			    	}
+					form.classList.add('was-validated');
+			   		return false;
+				}, false);
+			});
 		}
 
+		function getFormData($form){
+			var unindexed_array = $form.serializeArray();
+	 	    var indexed_array = {};
+	
+	 	    $.map(unindexed_array, function(n, i){
+	 	        indexed_array[n['name']] = n['value'];
+	 	    });
+	
+	 	    return indexed_array;
+		}
+      
       // SELECT.LIST
 		function getTicketInfoList() {
 
@@ -313,7 +344,7 @@
  		            { "data": "tkt_seatid" }
  		        ],
  		        "language" :  {
- 		               "decimal" : "",
+ 		              "decimal" : "",
  		              "emptyTable" : "데이터가 없습니다.",
  		              "info" : "_START_ - _END_ (총 _TOTAL_ 개)",
  		              "infoEmpty" : "0명",
@@ -337,15 +368,23 @@
  		              }
 				}
 			})
-			
-			$('#tkti-list').on('click', 'tr', function () {
-    	  		var klObj = $('#tkti-list').DataTable();
+		};
+      
+		(function trOnClickMaker() {
+	   		$('#tkti-list').on('click', 'tr', function () {
+	   	  		var klObj = $('#tkti-list').DataTable();
 	        	var data = klObj.row(this).data();
-	        	$('#update-form').attr('action', '/ticketinfo/' + data['tkt_id'])
+	        	var dataTarget = $('#update-form').attr('data-target', data['tkt_id']).attr('data-target');
+	        	$('#update-form').attr('action', '/ticketinfo/' + dataTarget);
+	        	for(var key in data) {
+	        		$('#'+key).val(data[key]);
+	        	}
 				$('#modalBtn').click();
 			})
-      	
-      };
+		})();
+		
+		
+      
       
       /// 함수 선언부 종료
       

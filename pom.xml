@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.springs</groupId>
@@ -7,8 +8,8 @@
 	<name>springs</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
-	
-<properties>
+
+	<properties>
 		<!-- Generic properties -->
 		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
 		<maven.compiler.source>1.7</maven.compiler.source>
@@ -20,26 +21,26 @@
 		<jsp.version>2.2</jsp.version>
 		<jstl.version>1.2</jstl.version>
 		<servlet.version>2.5</servlet.version>
- 		<!-- Spring -->
+		<!-- Spring -->
 		<spring-framework.version>4.3.8.RELEASE</spring-framework.version>
- 		<!-- Hibernate / JPA -->
+		<!-- Hibernate / JPA -->
 		<hibernate.version>4.2.1.Final</hibernate.version>
- 		<!-- Logging -->
+		<!-- Logging -->
 		<logback.version>1.0.13</logback.version>
 		<slf4j.version>1.6.6</slf4j.version>
- 		<!-- Test -->
+		<!-- Test -->
 		<junit.version>4.12</junit.version>
- 		<!-- Jackson -->
+		<!-- Jackson -->
 		<jackson.version>2.7.9</jackson.version>
- 	</properties>
- 	<dependencies>
- 		<!-- Spring MVC -->
+	</properties>
+	<dependencies>
+		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
- 		<!-- Other Web dependencies -->
+		<!-- Other Web dependencies -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -57,13 +58,13 @@
 			<version>${jsp.version}</version>
 			<scope>provided</scope>
 		</dependency>
- 		<!-- Spring and Transactions -->
+		<!-- Spring and Transactions -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
- 		<!-- Logging -->
+		<!-- Logging -->
 		<!-- log4jdbc-remix -->
 		<dependency>
 			<groupId>org.lazyluke</groupId>
@@ -111,13 +112,13 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
- 		<!-- Hibernate -->
+		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
- 		<!-- Test Artifacts -->
+		<!-- Test Artifacts -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -130,14 +131,14 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
- 		<!-- Database Config Start -->
+		<!-- Database Config Start -->
 		<!-- Ojdbc7 in Local -->
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc7</artifactId>
 			<version>12.1.0</version>
 		</dependency>
- 		<!-- commons-dbcp2 -->
+		<!-- commons-dbcp2 -->
 		<!-- Hikaricp -->
 		<dependency>
 			<groupId>com.zaxxer</groupId>
@@ -162,57 +163,64 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
- 		<!-- Database Config End -->
- 		<!-- JackSon Config Start -->
+		<!-- Database Config End -->
+		<!-- JackSon Config Start -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
- 		<dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
- 		<dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
- 		<!-- JackSon Config End -->
- 		<dependency>
+		<!-- JackSon Config End -->
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
- 		<!-- 트랜잭션 처리용 라이브러리 -->
+		<!-- 트랜잭션 처리용 라이브러리 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
- 		<!-- AspectJ -->
+		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>1.8.9</version>
 		</dependency>
- 		<dependency>
+		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjtools</artifactId>
 			<version>1.8.9</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.8.9</version>
 		</dependency>
- 		<!-- cglib -->
+		<!-- cglib -->
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib-nodep</artifactId>
 			<version>2.2.2</version>
+		</dependency>
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.22</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

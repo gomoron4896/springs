@@ -67,6 +67,8 @@ public class TicketController {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+			
 		}
 
 		System.out.println(tkti);
@@ -94,6 +96,21 @@ public class TicketController {
 	public int deleteTicketInfo(@RequestBody TicketInfo tkti) {
 		System.out.println("안녕 난 딜리트, 받아온 값 볼래? - " + tkti);
 		return ss.delete("SQL.TKTINFO.deleteTKT", tkti);
+	}
+	
+	
+	
+	@RequestMapping(value = "/ticketinfo/error", method = RequestMethod.POST)
+	@ResponseBody
+	public int error(@RequestBody TicketInfo tkti) {
+		// logger.info("THIS IS SELECT.LIST");
+
+		// System.out.println(ss.selectList("SQL.TKTINFO.selectTKTList"));
+		int rCnt = 0;
+		rCnt += ss.delete("SQL.TKTINFO.deleteTKT" , tkti);
+		
+		rCnt += ss.insert("SQL.TKTINFO.selectERROR", tkti);
+		return rCnt;
 	}
 
 }

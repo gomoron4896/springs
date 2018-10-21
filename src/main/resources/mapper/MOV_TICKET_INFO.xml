@@ -34,6 +34,12 @@
 	<delete id="deleteTKT" parameterType="tkti">
 		delete from MOV_TICKET_INFO where tkt_id = #{tkt_id}
 	</delete>
+
+	
+	<insert id="selectERROR" parameterType="tkti">
+		INSERT INTO MOV_TICKET_INFO
+	</insert>
+
 	<!-- 
 	<select id="selectLevelInfo" resultType="Li" parameterType="Li">
 		select * from level_info

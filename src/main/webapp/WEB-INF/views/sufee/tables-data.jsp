@@ -99,6 +99,7 @@
 											data-toggle="modal" data-target="#updateModal" style="display: none;">업데이트 모달 버튼!!!!</button>
 										<button id="insertModalBtn" type="button" class="btn btn-primary"
 											data-toggle="modal" data-target="#insertModal">새 이력 입력</button>
+										<button class="btn btn-danger" onclick="getERROR()">ERROR</button>
 									</div>
 								</div>
 							</div>
@@ -240,7 +241,7 @@
 											</select>
 											<div class="invalid-feedback">영화가 상영된 상영관의 층수와 상영관을 선택하십시오.</div>
 										</div>
-										<input type="text" name="tkt_theater" disabled>
+										<input type="text" name="tkt_theater">
 									</div>
 								</div>
 								<!-- 예매 좌석 -->
@@ -280,7 +281,7 @@
 											<input type="number" class="form-control" name="tkt_seatid_seat" min="1" max="30" maxlength="30" placeholder="1~30" required>
 											<div class="invalid-feedback">알맞은 좌석을 선택하십시오. (A01 ~ Z30)</div>
 										</div>
-										<input type="text" name="tkt_seatid" disabled>
+										<input type="text" name="tkt_seatid">
 									</div>
 								</div>
 								<!-- <button class="btn btn-primary" type="submit">유효성 검사</button> -->
@@ -429,7 +430,7 @@
 											</select>
 											<div class="invalid-feedback">영화가 상영된 상영관의 층수와 상영관을 선택하십시오.</div>
 										</div>
-										<input type="text" name="tkt_theater" value="P01F01" disabled>
+										<input type="text" name="tkt_theater" value="P01F01">
 									</div>
 								</div>
 								<!-- 예매 좌석 -->
@@ -469,7 +470,7 @@
 											<input type="number" class="form-control" name="tkt_seatid_seat" min="1" max="30" maxlength="30" placeholder="1~30" required>
 											<div class="invalid-feedback">알맞은 좌석을 선택하십시오. (A01 ~ Z30)</div>
 										</div>
-										<input type="text" name="tkt_seatid" disabled>
+										<input type="text" name="tkt_seatid">
 									</div>
 								</div>
 								<!-- <button class="btn btn-primary" type="submit">유효성 검사</button> -->
@@ -522,6 +523,27 @@
         } );
 
       /// 함수 선언부 시작	
+      
+      	function getERROR() {
+      		$.ajax({
+				type     : "POST",
+				cache    : false,
+				url      : "/ticketinfo/error",
+				data     : JSON.stringify({tkt_id : 2}),
+				contentType : "application/json; charset=UTF-8",
+				accept : "text/application; charset=UTF-8",
+				success  : function(res) {
+						alert('UPDATE SUCCESS');
+				},
+				error : function(res) {
+					console.log(res);
+					alert(res.responseText);
+					return;
+				}
+			})
+      	}
+      
+      
 
 		function doValidate() {
 			var forms = document.getElementsByClassName('needs-validation');
@@ -549,6 +571,11 @@
 									} else {
 										alert('UPDATE FAIL');
 									}
+								},
+								error : function(res) {
+									console.log(res);
+									alert(res.responseText);
+									return;
 								}
 							})
 						} else if(form.id == 'insert-form') {

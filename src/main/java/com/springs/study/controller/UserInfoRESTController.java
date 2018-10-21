@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.springs.study.service.UserInfoService;
 import com.springs.study.vo.UserInfo;
 
-public class UserInfoControllerREST {
+public class UserInfoRESTController {
 
 	@Autowired
 	private UserInfoService uis;
